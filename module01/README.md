@@ -8,20 +8,20 @@
 
 The selected small business is a PC building and repair shop. The company builds custom computers, upgrades existing systems, diagnoses hardware and software problems, removes malware, installs operating systems, and provides technical support.
 
-The business serves individual customers, gamers, students, and small companies. Employees need a reliable system to organize customer information, repair orders, computer specifications, inventory, invoices, and appointment schedules.
+The business serves individual customers, gamers, students, and small companies. Employees need a reliable system to organize customer information, repair orders, computer specifications, inventory, invoices, and appointments.
 
 ## Selected Workload
 
-The workload selected for cloud deployment is a web-based repair ticket and customer management system.
+The selected workload is a web-based repair ticket and customer management system.
 
 The system would allow employees to:
 
 - Create customer profiles.
 - Register computers brought in for service.
-- Record reported problems.
+- Record hardware and software problems.
 - Track diagnostic and repair progress.
 - Document replacement parts.
-- Update repair status.
+- Update repair statuses.
 - Prepare invoices.
 - Notify customers when their computers are ready.
 - Review previous repair history.
@@ -30,7 +30,7 @@ This workload is important because losing repair records could cause delays, inc
 
 ## Workload Requirements
 
-The system should provide:
+The repair management system should provide:
 
 - Secure employee authentication.
 - Centralized customer and repair records.
@@ -38,9 +38,9 @@ The system should provide:
 - Daily automated backups.
 - Protection of customer information.
 - Reliable availability during business hours.
-- The ability to support additional employees and locations.
-- Reasonable costs for a small business.
-- Recovery options if data is accidentally deleted or corrupted.
+- Support for additional employees and locations.
+- Reasonable operating costs for a small business.
+- Recovery options if information is deleted or corrupted.
 
 ## Deployment Model Comparison
 
@@ -48,25 +48,25 @@ The system should provide:
 
 With an on-premises deployment, the application and its data would be stored on a server located inside the repair shop.
 
-Advantages include:
+**Advantages:**
 
 - Direct control over the server and data.
-- The ability to customize the hardware.
-- Possible access through the local network if the internet connection fails.
+- Ability to customize the hardware.
+- Local access that may continue if the internet connection fails.
 
-Disadvantages include:
+**Disadvantages:**
 
 - High initial hardware costs.
 - Responsibility for maintenance and security.
 - Manual backup requirements.
-- Risk of data loss caused by theft, fire, flooding, or hardware failure.
-- More difficulty supporting remote access and business growth.
+- Risk of data loss from theft, fire, flooding, or hardware failure.
+- Difficulty supporting remote access and business growth.
 
 ### Public Cloud Deployment
 
 With a public cloud deployment, the application and its data would run through a provider such as Amazon Web Services, Microsoft Azure, or Google Cloud.
 
-Advantages include:
+**Advantages:**
 
 - Lower initial hardware costs.
 - Access from different locations.
@@ -75,28 +75,28 @@ Advantages include:
 - Provider-managed infrastructure.
 - Usage-based pricing.
 
-Disadvantages include:
+**Disadvantages:**
 
 - Dependence on an internet connection.
 - Continuing monthly expenses.
 - Possible unexpected charges if resources are not monitored.
-- A need to configure security and permissions correctly.
+- Security and permissions must be configured correctly.
 
 ### Hybrid Deployment
 
-A hybrid deployment would combine local technology with public cloud services. For example, the shop could keep diagnostic tools and temporary repair files on local computers while storing customer records, repair tickets, and backups in the cloud.
+A hybrid deployment combines local technology with public cloud services. For example, the shop could keep diagnostic tools and temporary repair files on local computers while storing customer records, repair tickets, and backups in the cloud.
 
-Advantages include:
+**Advantages:**
 
 - Flexibility in deciding where information is stored.
-- Cloud backup for important business records.
+- Cloud backups for important business records.
 - Local access to tools that do not require the internet.
-- Better support for different business workloads.
+- Better support for different types of workloads.
 
-Disadvantages include:
+**Disadvantages:**
 
 - More complicated administration.
-- A need to secure both local and cloud systems.
+- Both local and cloud systems must be secured.
 - Possible data synchronization problems.
 - Higher support requirements than a cloud-only system.
 
@@ -104,14 +104,14 @@ Disadvantages include:
 
 The recommended deployment model is the public cloud.
 
-A public cloud solution is appropriate because the repair shop is a small business that may not have the budget or employees necessary to maintain its own server. The cloud would allow employees to access repair tickets and customer records from authorized devices without purchasing expensive server equipment.
+A public cloud solution is appropriate because the repair shop may not have the budget or employees necessary to maintain its own server. The cloud would allow employees to access repair tickets and customer records from authorized devices without purchasing expensive server equipment.
 
-The cloud also provides backup, recovery, monitoring, and scalability options. If the business hires additional technicians or opens another location, the system can expand without replacing the entire infrastructure.
+Cloud services also provide backup, recovery, monitoring, and scalability options. If the business hires additional technicians or opens another location, the system can expand without replacing the entire infrastructure.
 
-Security would still be important. The company should use multifactor authentication, strong passwords, role-based access, encryption, automated backups, and activity logging. Employees should only receive access to the information required for their jobs.
+The company should use multifactor authentication, strong passwords, role-based access control, encryption, automated backups, and activity logging. Employees should only receive access to the information necessary for their jobs.
 
 ## Conclusion
 
-A cloud-based repair ticket and customer management system would help the PC building and repair shop organize its daily operations. Compared with an on-premises or hybrid deployment, the public cloud offers the best balance of cost, accessibility, reliability, recovery, and scalability for this business.
+A cloud-based repair ticket and customer management system would help the PC building and repair shop organize its daily operations. Compared with on-premises and hybrid deployment, the public cloud offers the best balance of cost, accessibility, reliability, recovery, and scalability.
 
 The final solution should protect customer information while allowing technicians to manage repairs efficiently from authorized devices.
