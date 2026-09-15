@@ -42,76 +42,141 @@ The repair management system should provide:
 - Reasonable operating costs for a small business.
 - Recovery options if information is deleted or corrupted.
 
+## Deployment Options
+
+### VirtualBox
+
+VirtualBox is a hosted hypervisor that runs on an existing laptop or desktop computer.
+
+A Linux virtual machine can be created inside VirtualBox without purchasing additional hardware or paying a monthly fee.
+
+**Advantages:**
+
+- Approximately $0 per month.
+- Uses the student's existing computer.
+- Quick to install and configure.
+- Easy to create and delete virtual machines.
+- Good for testing and learning.
+- The Linux environment can be restarted or recreated if something breaks.
+
+**Disadvantages:**
+
+- Depends on the resources of the host computer.
+- The virtual machine is normally available only while the host computer is running.
+- Performance may be lower than dedicated hardware.
+
+For this workload, VirtualBox is a strong option because the student only needs a simple Linux environment for practice.
+
+### Hyper-V
+
+Hyper-V is a virtualization platform from Microsoft that can run virtual machines on Windows systems.
+
+It could also be used to create a Linux practice server.
+
+**Advantages:**
+
+- Approximately $0 per month when available on a compatible Windows system.
+- Supports Linux virtual machines.
+- Good performance.
+- Useful for learning virtualization.
+
+**Disadvantages:**
+
+- Requires a compatible version of Windows.
+- May require additional configuration.
+- Provides no major advantage over VirtualBox for a simple student practice server.
+
+Hyper-V could support this workload, but VirtualBox may be simpler for a basic learning environment.
+
+### Proxmox Host
+
+Proxmox is a bare-metal hypervisor that is normally installed directly on a dedicated computer or server.
+
+It is commonly used to run multiple virtual machines.
+
+**Advantages:**
+
+- Good performance.
+- Supports multiple virtual machines.
+- Useful for larger virtualization labs.
+- Provides centralized management.
+
+**Disadvantages:**
+
+- Requires dedicated hardware.
+- The hardware must remain powered on.
+- Uses additional electricity.
+- More complicated than necessary for one practice Linux server.
+
+Proxmox would work, but it would be excessive for this workload because the student only needs one temporary Linux server.
+
+### Physical PC
+
+A physical PC could be used by installing Linux directly on the hardware.
+
+**Advantages:**
+
+- Full access to the computer's hardware.
+- No virtualization overhead.
+- Good performance.
+
+**Disadvantages:**
+
+- Requires a separate computer or dedicated hardware.
+- Higher hardware and electricity costs.
+- Harder to reset compared with a virtual machine.
+- Unnecessary for a simple practice environment.
+
+A physical PC is not the best choice because this workload does not require direct access to dedicated hardware.
+
+### Microsoft Azure
+
+Microsoft Azure is a public cloud platform that can provide Linux virtual machines through Microsoft's infrastructure.
+
+**Advantages:**
+
+- Quick deployment.
+- Remote access through the internet.
+- Easy to increase resources.
+- Does not require local server hardware.
+
+**Disadvantages:**
+
+- Creates recurring cloud charges.
+- Requires an internet connection.
+- More expensive than using an existing computer.
+- Cloud scalability is unnecessary for this workload.
+
+Azure could run the Linux server successfully, but the cost would not be justified for a student practice environment.
+
 ## Deployment Model Comparison
 
-### On-Premises Deployment
-
-With an on-premises deployment, the application and its data would be stored on a server located inside the repair shop.
-
-**Advantages:**
-
-- Direct control over the server and data.
-- Ability to customize the hardware.
-- Local access that may continue if the internet connection fails.
-
-**Disadvantages:**
-
-- High initial hardware costs.
-- Responsibility for maintenance and security.
-- Manual backup requirements.
-- Risk of data loss from theft, fire, flooding, or hardware failure.
-- Difficulty supporting remote access and business growth.
-
-### Public Cloud Deployment
-
-With a public cloud deployment, the application and its data would run through a provider such as Amazon Web Services, Microsoft Azure, or Google Cloud.
-
-**Advantages:**
-
-- Lower initial hardware costs.
-- Access from different locations.
-- Automated backup and recovery options.
-- Easier expansion as the business grows.
-- Provider-managed infrastructure.
-- Usage-based pricing.
-
-**Disadvantages:**
-
-- Dependence on an internet connection.
-- Continuing monthly expenses.
-- Possible unexpected charges if resources are not monitored.
-- Security and permissions must be configured correctly.
-
-### Hybrid Deployment
-
-A hybrid deployment combines local technology with public cloud services. For example, the shop could keep diagnostic tools and temporary repair files on local computers while storing customer records, repair tickets, and backups in the cloud.
-
-**Advantages:**
-
-- Flexibility in deciding where information is stored.
-- Cloud backups for important business records.
-- Local access to tools that do not require the internet.
-- Better support for different types of workloads.
-
-**Disadvantages:**
-
-- More complicated administration.
-- Both local and cloud systems must be secured.
-- Possible data synchronization problems.
-- Higher support requirements than a cloud-only system.
+| Deployment Option | Cost | Setup | Hardware Required | Scalability | Best Fit |
+|---|---|---|---|---|---|
+| VirtualBox | Very Low | Easy | Existing Computer | Low | Student Practice Lab |
+| Hyper-V | Very Low | Moderate | Existing Windows Computer | Moderate | Windows Virtualization |
+| Proxmox Host | Moderate | Moderate | Dedicated Computer | High | Multiple Virtual Machines |
+| Physical PC | Moderate to High | Moderate | Dedicated Computer | Low | Direct Hardware Access |
+| Microsoft Azure | Ongoing Monthly Cost | Easy | No Local Server | High | Cloud Workloads |
 
 ## Recommended Deployment Model
 
-The recommended deployment model is the public cloud.
+The recommended deployment option for this workload is **VirtualBox**.
 
-A public cloud solution is appropriate because the repair shop may not have the budget or employees necessary to maintain its own server. The cloud would allow employees to access repair tickets and customer records from authorized devices without purchasing expensive server equipment.
+The Linux server does not need high availability, large amounts of storage, direct hardware access, or significant room for growth.
 
-Cloud services also provide backup, recovery, monitoring, and scalability options. If the business hires additional technicians or opens another location, the system can expand without replacing the entire infrastructure.
+Cost is the most important requirement because the workload is being used by a student with little or no budget.
 
-The company should use multifactor authentication, strong passwords, role-based access control, encryption, automated backups, and activity logging. Employees should only receive access to the information necessary for their jobs.
+VirtualBox is the best choice because it uses an existing computer and does not create recurring cloud charges.
+
+It also allows the student to create, delete, restart, and rebuild the Linux virtual machine easily. This makes it ideal for learning Linux commands and experimenting without risking important information.
 
 ## Conclusion
 
-A cloud-based repair ticket and customer management system would help the PC building and repair shop organize its daily operations. Compared with on-premises and hybrid deployment, the public cloud offers the best balance of cost, accessibility, reliability, recovery, and scalability.
+All five deployment options could technically run a Linux server, but they are designed for different situations.
 
-The final solution should protect customer information while allowing technicians to manage repairs efficiently from authorized devices.
+Hyper-V is a good virtualization option for Windows systems, while Proxmox is better for larger virtualization environments. A physical PC provides direct hardware access, and Microsoft Azure provides cloud scalability and remote access.
+
+For a simple Linux practice server, these features are unnecessary.
+
+VirtualBox provides the best combination of low cost, easy setup, flexibility, and recovery. For this reason, VirtualBox is the most appropriate deployment option for the workload.
