@@ -5,7 +5,7 @@
 **Course:** CIT 386 — Infrastructure  
 **Assignment:** Module 4 — Assignment 4.2  
 **Date:** October 11, 2026  
-**Evidence status:** First blob SAS generation and successful Incognito access were confirmed by the student. The denied-listing and expiration results below are **SIMULATED EXAMPLES**, not captured Azure responses. Illustrative error codes and timestamps must not be represented as measured evidence.
+**Evidence status:** First blob SAS generation, exact nonsecret Token 1 parameters, and successful Incognito access were provided/confirmed by the student. The denied-listing and expiration results below are **SIMULATED EXAMPLES**, not captured Azure responses. Illustrative error codes and timestamps must not be represented as measured evidence.
 
 ## 1. Token 1: Configuration and Parameters
 
@@ -13,34 +13,34 @@ The objective is to give an unauthenticated visitor temporary, read-only access 
 
 | Parameter | Chosen setting / actual value |
 |---|---|
-| Azure storage account | `cit386roy2026` (confirm exact name in portal) |
+| Azure storage account | `cit386roy2026` (confirmed from supplied SAS URL) |
 | Container | `cit386` |
-| Blob path | `roy-diaz/resume.pdf` (illustrative filename; verify actual blob name) |
+| Blob path | `roy-diaz/Roy_Diaz_Resume.pdf` (confirmed from supplied SAS URL) |
 | SAS scope | **Single blob** (not whole container/account) |
-| SAS type / signing method | Service SAS (simulation assumption; verify actual signing method) |
+| SAS type / signing method | Service SAS (inferred from SAS fields; confirm signing method in portal) |
 | Permission | **Read (`r`) only** |
 | Other permissions | **None** (no list, create, write, add, delete, etc.) |
 | Allowed protocol | **HTTPS only** |
 | Allowed IP range | **Not restricted**, if access from any public IP is required |
-| Signed start (UTC) | 2026-10-11 23:30 UTC (simulated setting) |
-| Signed expiry (UTC) | 2026-10-25 23:30 UTC (simulated setting) |
-| Blob endpoint | `https://<account>.blob.core.windows.net/<container>/<your-blob>` |
+| Signed start (UTC) | 2026-10-11 23:17:38 UTC (from supplied SAS URL) |
+| Signed expiry (UTC) | 2026-11-12 08:32:38 UTC (from supplied SAS URL) |
+| Blob endpoint | `https://cit386roy2026.blob.core.windows.net/cit386/roy-diaz/Roy_Diaz_Resume.pdf` |
 
 **Redacted URL format:**
 
 ```text
-https://<account>.blob.core.windows.net/<container>/<your-blob>?sp=r&st=<UTC_START>&se=<UTC_END>&spr=https&sv=<VERSION>&sr=b&sig=[REDACTED]
+https://cit386roy2026.blob.core.windows.net/cit386/roy-diaz/Roy_Diaz_Resume.pdf?sp=r&st=2026-10-11T23:17:38Z&se=2026-11-12T08:32:38Z&spr=https&sv=2026-02-06&sr=b&sig=REDACTED
 ```
 
-The URL above is an illustrative format, not a generated or tested SAS URL. Actual SAS parameters differ by SAS type; when recording a real URL, preserve its nonsecret parameters and redact the entire `sig` value. Also avoid exposing other credentials or personally sensitive details.
+The URL above is the **actual URL structure and nonsecret SAS parameters supplied by the student**, with the complete `sig` value replaced by `REDACTED`. It is intentionally not a functional link. Avoid exposing the live signature in documents, screenshots, Git commits, or messages. Since the original live signature was shared in chat, revoke or invalidate that SAS and create a replacement before further use.
 
 ## 2. Evidence: Permitted Read Operation
 
 **Procedure performed:** I generated a blob SAS in Azure Portal and opened its Blob SAS URL in an Incognito browser without being signed into Azure. I confirmed that the file opened successfully. The signature itself must not appear in the submitted screenshot.
 
-- Test timestamp (UTC): **2026-10-11 23:35 UTC (example time)**
+- Test timestamp (UTC): **Not recorded (student confirmed success; do not infer timestamp)**
 - Browser / private window: **Chrome Incognito (reported by student)**
-- Requested blob filename: **resume.pdf (illustrative filename)**
+- Requested blob filename: **Roy_Diaz_Resume.pdf (from supplied URL)**
 - HTTP status code: **200 OK (illustrative; exact status not measured)**
 - Observed result: **SUCCESS — student confirmed that the SAS URL opened in Incognito**
 - Evidence file / screenshot: **User must provide redacted screenshot for submission**
@@ -52,7 +52,7 @@ The URL above is an illustrative format, not a generated or tested SAS URL. Actu
 **Procedure:** Using only the same read-only token, attempt to list the **same container containing my blob** with the following URL structure. Do not attempt access to another student's content. A blob-scoped SAS is not a container-list credential.
 
 ```text
-https://<account>.blob.core.windows.net/<container>?restype=container&comp=list&<SAS_QUERY_WITH_sig=[REDACTED]>
+https://cit386roy2026.blob.core.windows.net/cit386?restype=container&comp=list&sp=r&st=2026-10-11T23:17:38Z&se=2026-11-12T08:32:38Z&spr=https&sv=2026-02-06&sr=b&sig=REDACTED
 ```
 
 **Note:** The actual request in the browser must contain the complete, original SAS query string, including the real signature, but that signature must never appear in the submitted record. The placeholder above is NOT a functional URL. A blob-level SAS used against a container endpoint may fail due to a resource/scope mismatch rather than only a missing List permission; copy the **actual** Azure `Code` from the response instead of assuming one.
@@ -113,7 +113,7 @@ The SAS is configured for **HTTPS only**, so access over plain HTTP is not autho
 
 ### Between which two moments does it work?
 
-Token 1 is valid during the explicitly recorded signed time interval, from **2026-10-11 23:30 UTC (simulated start)** through **2026-10-25 23:30 UTC (simulated expiry)**, subject to any applicable policy or delegation-key limits. Token 2 has a separate, much shorter validity window, recorded in Section 4. The expiry experiment tests whether requests fail after that interval rather than trusting the intended configuration without evidence.
+Token 1 was configured to be valid during the explicitly recorded signed time interval, from **2026-10-11 23:17:38 UTC (actual signed start)** through **2026-11-12 08:32:38 UTC (actual signed expiry)**, subject to any applicable policy or delegation-key limits. Token 2 has a separate, much shorter validity window, recorded in Section 4. The expiry experiment tests whether requests fail after that interval rather than trusting the intended configuration without evidence.
 
 ## 6. Six-Month Recruiter Access: Changes and Risk
 
@@ -127,7 +127,7 @@ If I handed the recruiter a storage account access key, I could accidentally giv
 
 | Item | Documented result | Evidence status |
 |---|---|---|
-| First token generated | Blob SAS URL and token shown in Azure | Confirmed by student |
+| First token generated | Actual signed start, expiry, scope and nonsecret URL parameters recorded | Confirmed by supplied URL |
 | Read in private browser | Resume opened successfully | Confirmed by student; no screenshot available |
 | Container listing | 403 / example `AuthenticationFailed` | **Simulated** |
 | Second token, before expiry | 200 OK, PDF opened | **Simulated** |
